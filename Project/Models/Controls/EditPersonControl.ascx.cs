@@ -14,8 +14,7 @@ namespace Project.Models.Controls
 
         public void DisplayPersonData(Person p)
         {
-            if (!IsPostBack)
-                FillData(p);
+            FillData(p);
         }
 
         private void FillData(Person p)
@@ -65,7 +64,7 @@ namespace Project.Models.Controls
             if (!manager.UpdatePerson(p))
                 MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} not updated!", "Error!", Toastr.Error);
 
-            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} was successfully updated!", "Person updated", Toastr.Info);            
+            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} was successfully updated!", "Person updated", Toastr.Info);
         }
 
         protected void BtnDelete_Click(object sender, EventArgs e)

@@ -24,6 +24,6 @@ namespace Project.Models.BLL
         public static char DELIMITER = '|';
         public static char END_LINE = '\n';
         public static char EMAIL_DELIMITER = '~';
-        public static string TEXT_PATH = "C:/Users/mskalnik/Desktop/FileRepo.txt";
+        public static string TEXT_PATH = "C:/Users/mskalnik/Documents/Faculty/2nd-year/4/RWA/exam/web-forms/RwaWebForms/Project/FileRepo.txt";
     }
 }
