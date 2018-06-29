@@ -1,0 +1,94 @@
+﻿  /*------------------------------------------------------*/
+ /*------------------------GLOBAL------------------------*/
+/*------------------------------------------------------*/
+body {
+    font-family: 'Segoe UI';
+    background-color: lightgray;
+}
+
+h1 {
+    font-weight: 100;
+    font-size:28px;
+    margin:0;
+}
+
+hr {
+    margin:10px 0;
+}
+
+.main {
+    background-color: white;
+    margin: 30px auto 0;
+    border: 0 solid #ccc;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+footer {
+    text-align: center;
+}
+
+.content-container {
+    padding:20px;
+}
+
+  /*----------------------------------------------------------*/
+ /*------------------------NAVIGATION------------------------*/
+/*----------------------------------------------------------*/
+nav > ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li {
+    list-style: none;
+    display: inline-block;
+    margin: 5px 20px;
+}
+
+nav > ul > li > .btn {
+    width: 160px;
+}
+
+nav > ul > li > span:nth-child(2) {
+    margin-left: 5px;
+}
+
+  /*----------------------------------------------------------*/
+ /*------------------------VALIDATION------------------------*/
+/*----------------------------------------------------------*/
+.text-danger {
+    padding:30px;
+    font-size:32px;
+    display:inline-block;
+}
+
+.validation {
+    text-align: left;
+    color: red;
+    margin-top: 30px;
+    font-weight: normal;
+}
+
+  /*--------------------------------------------------------*/
+ /*------------------------ADD PAGE------------------------*/
+/*--------------------------------------------------------*/
+.add-button {
+    width:100%;
+    height:100%;
+    margin-top:25px;
+}
+
+.add-person-container {
+    padding: 0 40px;
+}
+
+  /*-----------------------------------------------------------------*/
+ /*------------------------EDIT PERSON PAGE-------------------------*/
+/*-----------------------------------------------------------------*/
+.person-holder {
+    margin: 0 32px;
+}
+

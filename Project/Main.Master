@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Project.Main" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/my-ultra-cool.css" rel="stylesheet" />
+    <link href="Content/edit-person.css" rel="stylesheet" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/toastr.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container main">
+        <header>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                    <h1><%: Page.Title.ToString() %></h1>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                    <asp:LinkButton ID="MasterSendMail" Text="123 123" CssClass="btn btn-success" runat="server" />
+                    <asp:LinkButton ID="MasterLogout" Text="<%$ Resources:Master, Logout %>" CssClass="btn btn-warning" runat="server" />
+                </div>
+            </div>
+            <hr />
+            <nav>
+                <ul>
+                    <li>
+                        <asp:LinkButton PostBackUrl="~/Add.aspx" ID="BtnMasterAdd" CssClass="btn btn-default" runat="server">
+                            <asp:label CssClass="glyphicon glyphicon-floppy-save" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Add %>" runat="server" />
+                        </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton PostBackUrl="~/Edit.aspx" ID="BtnMasterEdit" CssClass="btn btn-default" runat="server">
+                            <asp:label CssClass="glyphicon glyphicon-share" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Edit %>" runat="server" />
+                        </asp:LinkButton>
+                    <li>
+                        <asp:LinkButton PostBackUrl="~/List.aspx" ID="BtnMasterPerson" CssClass="btn btn-default" runat="server">
+                            <asp:label CssClass="glyphicon glyphicon-list" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Person %>" runat="server" />
+                        </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton PostBackUrl="~/Setup.aspx" ID="BtnMasterSetup" CssClass="btn btn-default" runat="server">
+                            <asp:label CssClass="glyphicon glyphicon-cog" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Setup %>" runat="server" />
+                        </asp:LinkButton>
+                    </li>
+                </ul>
+            </nav>
+            <hr />                
+        </header>
+
+        <div class="row">
+            <asp:ContentPlaceHolder ID="Content" runat="server">
+                
+            </asp:ContentPlaceHolder>
+        </div>
+        <hr />
+
+        <footer>
+            <p>
+                <%: DateTime.Now.ToLongDateString() %>
+                <asp:Label Text="<%$ Resources:Master, SignFirst %>" runat="server" />
+                <asp:Label Text="<%$ Resources:Master, SignSecond %>" CssClass="text-warning" runat="server" />
+                <asp:Label Text="<%$ Resources:Master, SignThird %>" runat="server" />
+            </p>
+            <p>
+                <asp:Label ID="Label1" CssClass="badge" runat="server" Text="<%$ Resources:Master, Repo %>"></asp:Label>            
+            </p>
+        </footer> 
+      </div>        
+    </form>
+    </body>
+</html>
