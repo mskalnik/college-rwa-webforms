@@ -8,7 +8,7 @@ namespace Project.Models.DAL
     {
         IList<Person> GetPersons();
         Person GetPerson(Guid id);
-        bool AddPerson(Person person);
+        bool AddPerson(Person p);
         bool DeletePerson(Guid id);
         bool UpdatePerson(Person p);
     }

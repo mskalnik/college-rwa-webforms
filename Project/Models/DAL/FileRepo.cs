@@ -71,8 +71,24 @@ namespace Project.Models.DAL
 
         public bool UpdatePerson(Person p)
         {
-            GetPerson(p.Id);
-            return false;
+            IList<Person> persons = GetPersons();
+            for (int i = 0; i < persons.Count; i++)
+            {
+                if (persons[i].Id == p.Id)
+                {
+                    persons[i] = p;
+                }
+            }
+
+            try
+            {
+                File.WriteAllLines(Constants.TEXT_PATH, persons.Select(pe => pe.ToFile()));
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public Person GetPerson(Guid id)

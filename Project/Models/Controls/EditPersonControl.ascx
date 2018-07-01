@@ -43,7 +43,7 @@
             <td>
                 <div class="input-group input-group-sm">
                     <asp:TextBox ID="TxtEmail" CssClass="form-control" runat="server" />
-                    <asp:LinkButton ID="BtnEditEmail" CssClass="input-group-addon btn btn-sm glyphicon glyphicon-save" runat="server" />
+                    <asp:LinkButton ID="BtnEditEmail" CssClass="input-group-addon btn btn-sm glyphicon glyphicon-save" runat="server" OnClick="BtnEditEmail_Click" />
                 </div>
             </td>
             <td>

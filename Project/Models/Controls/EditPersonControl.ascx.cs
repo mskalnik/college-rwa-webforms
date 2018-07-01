@@ -54,6 +54,7 @@ namespace Project.Models.Controls
             {
                 Id = Guid.Parse(LblId.Text),
                 Name = TxtName.Text,
+                Email = new List<string> { DdlEmail.SelectedValue },
                 Surname = TxtSurname.Text,
                 Telephone = TxtTelephone.Text,
                 Password = TxtPassword.Text,
@@ -76,6 +77,23 @@ namespace Project.Models.Controls
                 MyPage.ShowToastr(Page, $"{name} {surname} not deleted!", "Error!", Toastr.Error);
 
             MyPage.ShowToastr(Page, $"{name} {surname} was successfully deleted!", "Info", Toastr.Info);
+        }
+
+        protected void BtnEditEmail_Click(object sender, EventArgs e)
+        {
+            Person p = manager.GetPerson(Guid.Parse(LblId.Text));
+            for (int i = 0; i < p.Email.Count; i++)
+            {
+                if (DdlEmail.SelectedValue == p.Email[i])
+                {
+                    p.Email[i] = TxtEmail.Text;
+                }
+            }
+
+            if (!manager.UpdatePerson(p))
+                MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} email updated!", "Error!", Toastr.Error);
+
+            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} email successfully updated!", "Person updated", Toastr.Info);
         }
     }
 }
