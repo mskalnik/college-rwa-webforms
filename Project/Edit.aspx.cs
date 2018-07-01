@@ -17,9 +17,17 @@ namespace Project
 
             foreach (var p in persons)
             {
-                EditPersonControl epc = LoadControl("~/Models/Controls/EditPersonControl.ascx") as EditPersonControl;
-                EditContent.Controls.Add(epc);
-                epc.DisplayPersonData(p);
+                if (p.Email[0] != "admin@mail.com")
+                {
+                    EditPersonControl epc = LoadControl("~/Models/Controls/EditPersonControl.ascx") as EditPersonControl;
+                    EditContent.Controls.Add(epc);
+                    epc.DisplayPersonData(p);
+                }
+            }
+
+            if (persons.Count == 1)
+            {
+                BtlNoPersons.CssClass = "h3 btn-link";
             }
         }
     }

@@ -49,5 +49,11 @@ namespace Project
             CbLoginRemember.Checked = check;
             TxtLoginEmail.Focus();
         }
+
+        protected void BtnLoginInfo_Click(object sender, EventArgs e)
+        {
+            TxtLoginEmail.Text = "admin@mail.com";
+            TxtLoginPassword.Text = "123";
+        }
     }
 }

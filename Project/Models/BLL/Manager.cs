@@ -21,13 +21,13 @@ namespace Project.Models.BLL
         IList<Person> persons = repo.GetPersons();
 
         public ISet<string> GetCities()
-        {            
-            ISet<string> cities = new HashSet<string>();
-            foreach (var p in persons)
-            {
-                cities.Add(p.City);
-            }
-            return cities;
+        {
+            //ISet<string> cities = new HashSet<string>();
+            //foreach (var p in persons)
+            //{
+            //    cities.Add(p.City);
+            //}
+            return Constants.CITIES;
         }        
 
         public ISet<string> GetEmails()

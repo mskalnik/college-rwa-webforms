@@ -10,9 +10,11 @@
     </script>
 
     <div class="person-holder">
+        <asp:HyperLink ID="BtlNoPersons" NavigateUrl="~/Add.aspx" Text="No users to edit. Add a user?" CssClass="hidden" runat="server" />
+
         <asp:PlaceHolder ID="EditContent" runat="server">
         
-        </asp:PlaceHolder>
+        </asp:PlaceHolder>        
     </div>
 
 </asp:Content>

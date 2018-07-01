@@ -18,7 +18,17 @@ namespace Project.Models.DAL
         {
             if (!File.Exists(Constants.TEXT_PATH))
             {
-                File.Create(Constants.TEXT_PATH).Close();                
+                File.Create(Constants.TEXT_PATH).Close();
+                AddPerson(new Person
+                {
+                    Name = "Main",
+                    Surname = "Admin",
+                    Email = new List<string> { "admin@mail.com", "admin@email.com", "admin@admin.com" },
+                    Telephone = "+1234567890",
+                    Password = "123",
+                    Admin = true,
+                    City = "Helsinki"
+                });
             }
         }
 

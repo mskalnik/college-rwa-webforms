@@ -20,7 +20,7 @@ namespace Project.Models.Controls
         private void FillData(Person p)
         {
             UpdateValidationGroup(p);
-            
+
             LblId.Text              = p.Id.ToString();
             TxtName.Text            = p.Name;
             TxtSurname.Text         = p.Surname;
@@ -73,6 +73,7 @@ namespace Project.Models.Controls
             Guid id = Guid.Parse(LblId.Text);
             string name = TxtName.Text;
             string surname = TxtSurname.Text;
+
             if (!manager.DeletePerson(id))
                 MyPage.ShowToastr(Page, $"{name} {surname} not deleted!", "Error!", Toastr.Error);
 

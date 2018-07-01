@@ -13,6 +13,15 @@ namespace Project {
     public partial class Edit {
         
         /// <summary>
+        /// BtlNoPersons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink BtlNoPersons;
+        
+        /// <summary>
         /// EditContent control.
         /// </summary>
         /// <remarks>

@@ -1,5 +1,2 @@
-adfef14b-20a8-4bc8-97bb-a2b636d1cd62|Admin1|Admin1|admin@email.com~|+1234567890|123|True|Novi Jork
-adfef14b-20a8-4bc8-97bb-a2b636d1cd65|Admin2|Admin2|3@email.com~|+1234567890|123|True|Novi Jork
-adfef14b-20a8-4bc8-97bb-a2b636d1cd63|Admin2|Admin2|1@email.com~|+1234567890|123|True|Novi Jork
-adfef14b-20a8-4bc8-97bb-a2b636d1cd64|Admin2|Admin2|2@email.com~|+1234567890|123|True|Novi Jork
-adfef14b-20a8-4bc8-97bb-a2b636d1cd66|Admin2|Admin2|4@email.com~|+1234567890|123|True|Novi Jork
+a2ae5bfc-2d19-49aa-b686-e8543033941a|Main|Admin|admin@mail.com~admin@email.com~admin@admin.com~|+1234567890|123|True|Helsinki
+
