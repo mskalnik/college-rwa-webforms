@@ -12,6 +12,14 @@ namespace Project.Models.BLL
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
+            if (!Request.Url.ToString().Contains("Login"))
+            {
+                if (Request.Cookies["user"] == null && Session["user"] == null)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+
             if (Request.Cookies["theme"] != null)
             {
                 var theme = Request.Cookies["theme"].Value;
