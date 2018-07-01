@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
+using System.Web;
 using System.Web.UI;
 
 namespace Project.Models.BLL
@@ -31,6 +32,16 @@ namespace Project.Models.BLL
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
                 }
             }
+        }
+
+        public void CreateCookie(string name, string value)
+        {
+            HttpCookie cookie = new HttpCookie(name)
+            {
+                Expires = DateTime.Now.AddYears(1)
+            };
+            cookie.Value = value;
+            Response.Cookies.Add(cookie);            
         }
 
         public static void ShowToastr(Page page, string message, string title, Toastr type)

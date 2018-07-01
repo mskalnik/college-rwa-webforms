@@ -19,11 +19,13 @@ namespace Project
         protected void DdlTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateCookie("theme", DdlTheme.SelectedValue);
+            Response.Redirect(Request.Url.AbsolutePath);
         }
 
         protected void DdlLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateCookie("language", DdlLanguage.SelectedValue);
+            Response.Redirect(Request.Url.AbsolutePath);
         }
 
         private void SetSelectedValues()
@@ -37,17 +39,6 @@ namespace Project
                 DdlLanguage.SelectedValue = Request.Cookies["language"].Value;
             else
                 DdlLanguage.SelectedIndex = 2;
-        }
-
-        public void CreateCookie(string name, string value)
-        {
-            HttpCookie cookie = new HttpCookie(name)
-            {
-                Expires = DateTime.Now.AddYears(1)
-            };
-            cookie.Value = value;
-            Response.Cookies.Add(cookie);
-            Response.Redirect(Request.Url.AbsolutePath);
-        }
+        }        
     }
 }

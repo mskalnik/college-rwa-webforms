@@ -18,9 +18,10 @@ namespace Project.Models.BLL
         public bool UpdatePerson(Person p)      => repo.UpdatePerson(p);
 
         //****************************Manager functions*************************************
+        IList<Person> persons = repo.GetPersons();
+
         public ISet<string> GetCities()
-        {
-            IList<Person> persons = GetPersons();
+        {            
             ISet<string> cities = new HashSet<string>();
             foreach (var p in persons)
             {
@@ -31,7 +32,6 @@ namespace Project.Models.BLL
 
         public ISet<string> GetEmails()
         {
-            IList<Person> persons = GetPersons();
             ISet<string> emails = new HashSet<string>();
             persons.ToList().ForEach(p => emails.Add(p.Email.ToString()));
             //foreach (var p in persons)
@@ -43,7 +43,6 @@ namespace Project.Models.BLL
 
         public bool IsLogged(string guid)
         {
-            IList<Person> persons = GetPersons();
             foreach (var p in persons)
             {
                 if (p.Id.Equals(Guid.Parse(guid)))
@@ -52,9 +51,17 @@ namespace Project.Models.BLL
             return false;
         }
 
-        public bool LoginInfo(string email, string password)
+        public Person LoginInfo(string email, string password)
         {
-            throw new NullReferenceException();
+            foreach (var p in persons)
+            {
+                foreach (var e in p.Email)
+                {
+                    if (e == email)
+                        return p;
+                }
+            }
+            return null;
         }
     }
 }
