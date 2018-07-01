@@ -90,6 +90,7 @@
     <Content Include="FileRepo.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="List.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Main.Master" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
