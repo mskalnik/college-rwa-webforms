@@ -14,6 +14,16 @@ namespace Project.Models.Controls
 
         public void DisplayPersonData(Person p)
         {
+            if (Session["error"] != null)
+            {
+                MyPage.ShowToastr(Page, Session["error"].ToString(), "Error!", Toastr.Error);
+                Session.Abandon();
+            }
+            if (Session["info"] != null)
+            {
+                MyPage.ShowToastr(Page, Session["info"].ToString(), "Info!", Toastr.Info);
+                Session.Abandon();
+            }
             FillData(p);
         }
 
@@ -65,7 +75,7 @@ namespace Project.Models.Controls
             if (!manager.UpdatePerson(p))
                 MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} not updated!", "Error!", Toastr.Error);
 
-            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} was successfully updated!", "Person updated", Toastr.Info);
+            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} was successfully updated!", "Person updated", Toastr.Success);
         }
 
         protected void BtnDelete_Click(object sender, EventArgs e)
@@ -75,26 +85,22 @@ namespace Project.Models.Controls
             string surname = TxtSurname.Text;
 
             if (!manager.DeletePerson(id))
-                MyPage.ShowToastr(Page, $"{name} {surname} not deleted!", "Error!", Toastr.Error);
+                Session["error"] = $"{name} {surname} not deleted!";
 
-            MyPage.ShowToastr(Page, $"{name} {surname} was successfully deleted!", "Info", Toastr.Info);
+            Session["info"] = $"{name} {surname} was deleted!";
+            Response.Redirect(Request.Url.AbsolutePath);
         }
 
         protected void BtnEditEmail_Click(object sender, EventArgs e)
         {
             Person p = manager.GetPerson(Guid.Parse(LblId.Text));
-            for (int i = 0; i < p.Email.Count; i++)
-            {
-                if (DdlEmail.SelectedValue == p.Email[i])
-                {
-                    p.Email[i] = TxtEmail.Text;
-                }
-            }
+            p.Email[DdlEmail.SelectedIndex] = TxtEmail.Text;
 
             if (!manager.UpdatePerson(p))
-                MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} email updated!", "Error!", Toastr.Error);
+                Session["error"] = $"{p.Name} {p.Surname} not edited!";
 
-            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} email successfully updated!", "Person updated", Toastr.Info);
+            Session["info"] = $"{p.Name} {p.Surname} edited!";
+            Response.Redirect(Request.Url.AbsolutePath);
         }
     }
 }
