@@ -33,11 +33,13 @@ namespace Project.Models.BLL
         public ISet<string> GetEmails()
         {
             ISet<string> emails = new HashSet<string>();
-            persons.ToList().ForEach(p => emails.Add(p.Email.ToString()));
-            //foreach (var p in persons)
-            //{
-            //    emails.Add(p.Email.ToString());
-            //}
+            foreach (var p in persons)
+            {
+                foreach (var e in p.Email)
+                {
+                    emails.Add(e);
+                }
+            }
             return emails;
         }
 

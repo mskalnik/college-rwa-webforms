@@ -21,7 +21,7 @@ namespace Project.Models.Controls
             }
             if (Session["info"] != null)
             {
-                MyPage.ShowToastr(Page, Session["info"].ToString(), "Info!", Toastr.Info);
+                MyPage.ShowToastr(Page, Session["info"].ToString(), "Info!", Toastr.Success);
                 Session.Abandon();
             }
             FillData(p);
@@ -31,18 +31,21 @@ namespace Project.Models.Controls
         {
             UpdateValidationGroup(p);
 
-            LblId.Text              = p.Id.ToString();
-            TxtName.Text            = p.Name;
-            TxtSurname.Text         = p.Surname;
-            DdlEmail.Items.Clear();
-                p.Email.ToList().ForEach(e => DdlEmail.Items.Add(e));
-            TxtEmail.Text           = DdlEmail.SelectedValue;
-            TxtTelephone.Text       = p.Telephone;
-            TxtPassword.Text        = p.Password;
-            DdlStatus.SelectedValue = p.Admin.ToString();
-            DdlCity.Items.Clear();
-                manager.GetCities().ToList().ForEach(c => DdlCity.Items.Add(c));
-            DdlCity.SelectedValue   = p.City;
+            if (!IsPostBack)
+            {
+                LblId.Text              = p.Id.ToString();
+                TxtName.Text            = p.Name;
+                TxtSurname.Text         = p.Surname;
+                DdlEmail.Items.Clear();
+                    p.Email.ToList().ForEach(e => DdlEmail.Items.Add(e));
+                TxtEmail.Text           = DdlEmail.SelectedValue; 
+                TxtTelephone.Text       = p.Telephone;
+                TxtPassword.Text        = p.Password;
+                DdlStatus.SelectedValue = p.Admin.ToString();
+                DdlCity.Items.Clear();
+                    manager.GetCities().ToList().ForEach(c => DdlCity.Items.Add(c));
+                DdlCity.SelectedValue   = p.City;
+            }
         }
 
         private void UpdateValidationGroup(Person p)
@@ -60,22 +63,37 @@ namespace Project.Models.Controls
 
         protected void BtnEdit_Click(object sender, EventArgs e)
         {
-            Person p = new Person
-            {
-                Id = Guid.Parse(LblId.Text),
-                Name = TxtName.Text,
-                Email = new List<string> { DdlEmail.SelectedValue },
-                Surname = TxtSurname.Text,
-                Telephone = TxtTelephone.Text,
-                Password = TxtPassword.Text,
-                Admin = bool.Parse(DdlStatus.SelectedValue),
-                City = DdlCity.SelectedValue,
-            };
+            Person p = manager.GetPerson(Guid.Parse(LblId.Text));
+            UpdateAllButEmail(p);          
+            ExecuteAction(manager.UpdatePerson, p, "updated");            
+        }
 
-            if (!manager.UpdatePerson(p))
-                MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} not updated!", "Error!", Toastr.Error);
+        private void UpdateAllButEmail(Person p)
+        {
+            p.Id        = Guid.Parse(LblId.Text);
+            p.Name      = TxtName.Text;
+            p.Surname   = TxtSurname.Text;
+            p.Telephone = TxtTelephone.Text;
+            p.Password  = TxtPassword.Text;
+            p.Admin     = bool.Parse(DdlStatus.SelectedValue);
+            p.City      = DdlCity.SelectedValue;
+        }
 
-            MyPage.ShowToastr(Page, $"{p.Name} {p.Surname} was successfully updated!", "Person updated", Toastr.Success);
+        protected void BtnEditEmail_Click(object sender, EventArgs e)
+        {
+            Person p = manager.GetPerson(Guid.Parse(LblId.Text));
+            p.Email[DdlEmail.SelectedIndex] = TxtEmail.Text;
+
+            ExecuteAction(manager.UpdatePerson, p, "email update");
+        }
+
+        private void ExecuteAction(Func<Person, bool> function, Person p, string message)
+        {
+            if (!function(p))
+                Session["error"] = $"{p.Name} {p.Surname} couldn't {message}!";
+
+            Session["info"] = $"{p.Name} {p.Surname} {message}!";
+            Response.Redirect(Request.Url.AbsolutePath);
         }
 
         protected void BtnDelete_Click(object sender, EventArgs e)
@@ -88,18 +106,6 @@ namespace Project.Models.Controls
                 Session["error"] = $"{name} {surname} not deleted!";
 
             Session["info"] = $"{name} {surname} was deleted!";
-            Response.Redirect(Request.Url.AbsolutePath);
-        }
-
-        protected void BtnEditEmail_Click(object sender, EventArgs e)
-        {
-            Person p = manager.GetPerson(Guid.Parse(LblId.Text));
-            p.Email[DdlEmail.SelectedIndex] = TxtEmail.Text;
-
-            if (!manager.UpdatePerson(p))
-                Session["error"] = $"{p.Name} {p.Surname} not edited!";
-
-            Session["info"] = $"{p.Name} {p.Surname} edited!";
             Response.Redirect(Request.Url.AbsolutePath);
         }
     }
