@@ -45,7 +45,7 @@
                             <SortedDescendingCellStyle BackColor="#E5E5E5" />
                             <SortedDescendingHeaderStyle BackColor="#242121" />
                         </asp:GridView>
-                        <asp:ObjectDataSource ID="PersonListDataSource" runat="server" DataObjectTypeName="System.Guid" DeleteMethod="DeletePerson" SelectMethod="GetPersons" TypeName="Project.Models.BLL.Manager" UpdateMethod="UpdatePerson"></asp:ObjectDataSource>
+                        <asp:ObjectDataSource ID="PersonListDataSource" runat="server" DataObjectTypeName="System.Guid" SelectMethod="GetPersons" TypeName="Project.Models.BLL.Manager" UpdateMethod="UpdatePerson"></asp:ObjectDataSource>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,64 @@
                 <%-- Content --%>
                 <div id="repeaterContent" aria-expanded="false" class="panel-collapse collapse">
                     <div class="panel-body">
-                        repiter
+                        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="PersonListDataSource">
+                            <HeaderTemplate>
+                            <asp:Label Text='<%# Eval("Id") %>' ID="LblId" CssClass="hidden" runat="server" />
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>
+                                            <asp:Label Text="Name:" runat="server" />
+                                        </th>
+                                        <th>
+                                            <asp:Label Text="Surname:" runat="server" />
+                                        </th>
+                                        <th>
+                                            <asp:Label Text="Email:" runat="server" />
+                                        </th>
+                                        <th>
+                                            <asp:Label Text="Phone:" runat="server" />
+                                        </th>
+                                        <th>
+                                            <asp:Label Text="Status:" runat="server" />
+                                        </th>
+                                        <th>
+                                            <asp:Label Text="City:" runat="server" />
+                                        </th>
+                                        <th>                                            
+                                        </th>
+                                    </tr>
+                            </HeaderTemplate>
+
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <asp:Label Text='<%# Eval("Name") %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%# Eval("Surname") %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%# Eval("Email") %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%# Eval("Telephone") %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%# Eval("Admin") %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%# Eval("City") %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:HyperLink NavigateUrl='<%# "Update.aspx?Id=" + Eval("Id").ToString() %>' Text="Update" CssClass="btn btn-primary" runat="server" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+                        </asp:Repeater>                        
                     </div>
                 </div>
             </div>
