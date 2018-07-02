@@ -93,7 +93,7 @@ namespace Project.Models.Controls
                 Session["error"] = $"{p.Name} {p.Surname} couldn't {message}!";
 
             Session["info"] = $"{p.Name} {p.Surname} {message}!";
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.OriginalString);
         }
 
         protected void BtnDelete_Click(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace Project.Models.Controls
                 Session["error"] = $"{name} {surname} not deleted!";
 
             Session["info"] = $"{name} {surname} was deleted!";
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect(Request.Url.OriginalString);
         }
     }
 }

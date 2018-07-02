@@ -85,6 +85,8 @@
     <Content Include="Content\my-ultra-cool.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="Data\Database\Table.sql" />
+    <Content Include="Data\FileRepo.txt" />
     <Content Include="Edit.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
