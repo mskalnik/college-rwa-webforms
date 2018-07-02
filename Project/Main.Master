@@ -9,8 +9,8 @@
     <link href="Content/edit-person.css" rel="stylesheet" />
     <link href="Content/toastr.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.3.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/toastr.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -33,19 +33,19 @@
                     <li>
                         <asp:LinkButton PostBackUrl="~/Add.aspx" ID="BtnMasterAdd" CssClass="btn btn-default" runat="server">
                             <asp:label CssClass="glyphicon glyphicon-floppy-save" runat="server" />
-                            <asp:label Text="<%$ Resources:Master, Add %>" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Add %>" CssClass="navi" runat="server" />
                         </asp:LinkButton></li><li>
                         <asp:LinkButton PostBackUrl="~/Edit.aspx" ID="BtnMasterEdit" CssClass="btn btn-default" runat="server">
                             <asp:label CssClass="glyphicon glyphicon-share" runat="server" />
-                            <asp:label Text="<%$ Resources:Master, Edit %>" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Edit %>" CssClass="navi" runat="server" />
                         </asp:LinkButton><li>
                         <asp:LinkButton PostBackUrl="~/List.aspx" ID="BtnMasterPerson" CssClass="btn btn-default" runat="server">
                             <asp:label CssClass="glyphicon glyphicon-list" runat="server" />
-                            <asp:label Text="<%$ Resources:Master, Person %>" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Person %>" CssClass="navi" runat="server" />
                         </asp:LinkButton></li><li>
                         <asp:LinkButton PostBackUrl="~/Setup.aspx" ID="BtnMasterSetup" CssClass="btn btn-default" runat="server">
                             <asp:label CssClass="glyphicon glyphicon-cog" runat="server" />
-                            <asp:label Text="<%$ Resources:Master, Setup %>" runat="server" />
+                            <asp:label Text="<%$ Resources:Master, Setup %>" CssClass="navi" runat="server" />
                         </asp:LinkButton></li></ul></nav><hr />                
         </header>
 
