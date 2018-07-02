@@ -104,7 +104,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="panel-body">
                         
-                        <asp:Repeater ID="Repeater1" runat="server">
+                        <asp:Repeater ID="RepeaterPerson" runat="server">
                             <HeaderTemplate>
                                 <table class="table table-hover">
                                     <tr style="background:#333; color:white;">
@@ -161,7 +161,7 @@
                             <FooterTemplate>
                                 </table>
                             </FooterTemplate>
-                        </asp:Repeater>
+                        </asp:Repeater>                        
 
                     </div>
             </div>

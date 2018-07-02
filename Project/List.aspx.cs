@@ -24,8 +24,8 @@ namespace Project
             GwPersons.DataSource = manager.GetPersons();
             GwPersons.DataBind();
 
-            Repeater1.DataSource = manager.GetPersons();
-            Repeater1.DataBind();
+            RepeaterPerson.DataSource = manager.GetPersons();
+            RepeaterPerson.DataBind();
         }
 
         protected void GwPersons_RowEditing(object sender, GridViewEditEventArgs e)
