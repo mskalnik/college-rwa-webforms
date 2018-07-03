@@ -17,12 +17,12 @@ namespace Project.Models.Controls
             if (Session["error"] != null)
             {
                 MyPage.ShowToastr(Page, Session["error"].ToString(), "Error!", Toastr.Error);
-                Session.Abandon();
+                Session.Remove("error");
             }
             if (Session["info"] != null)
             {
                 MyPage.ShowToastr(Page, Session["info"].ToString(), "Info!", Toastr.Success);
-                Session.Abandon();
+                Session.Remove("info");
             }
             FillData(p);
         }

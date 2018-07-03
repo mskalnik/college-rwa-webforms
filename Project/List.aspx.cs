@@ -13,6 +13,12 @@ namespace Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["error"] != null)
+            {
+                ShowToastr(Page, Session["error"].ToString(), "Error!", Toastr.Error);
+                Session.Remove("error");
+            }
+
             if (!IsPostBack)
             {
                 ShowData();
@@ -45,9 +51,9 @@ namespace Project
             GridViewRow row = GwPersons.Rows[e.RowIndex];
             Label Id = GetControl<Label>(row.Cells[0].Controls);
             TextBox Name = GetControl<TextBox>(row.Cells[1].Controls);
-            TextBox Surname = GetControl<TextBox>(row.Cells[2].Controls);
-            TextBox Telephone = GetControl<TextBox>(row.Cells[3].Controls);
-            DropDownList Admin = GetControl<DropDownList>(row.Cells[4].Controls);
+            TextBox Surname = GetControl<TextBox>(row.Cells[3].Controls);
+            TextBox Telephone = GetControl<TextBox>(row.Cells[4].Controls);
+            DropDownList Admin = GetControl<DropDownList>(row.Cells[5].Controls);
 
             Person p = manager.GetPerson(Guid.Parse(Id.Text));
             p.Name = Name.Text;
@@ -70,6 +76,31 @@ namespace Project
                 }
             }
             return default(T);
+        }
+
+        protected void GwPersons_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //Label Id = GetControl<Label>(e.Row.Cells[0].Controls);
+            //Person p = manager.GetPerson(Guid.Parse(Id.Text));
+            Person p = manager.GetPerson(Guid.Parse("d687a385-5e93-452b-8831-92fa022eaba1"));
+
+            TemplateField tf = new TemplateField
+            {
+                HeaderText = "Email"
+            };
+
+            foreach (var em in p.Email)
+            {
+                if (e.Row.RowState == (DataControlRowState.Normal ^ DataControlRowState.Selected))
+                {
+
+                }
+                else
+                {
+                    e.Row.Cells[3].Controls.Add(new TextBox { Text = em, CssClass = "form-control" });
+                }
+            }
+
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Project
             string email = TxtLoginEmail.Text;
             string password = TxtLoginPassword.Text;
             bool check = CbLoginRemember.Checked;
-            var p = manager.LoginInfo(email, password);
+            var p = manager.LoginInfo(email);
 
             if (p == null)
             {

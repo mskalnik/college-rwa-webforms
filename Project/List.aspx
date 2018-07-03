@@ -24,7 +24,7 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="panel-body">                        
 
-                        <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating">
+                        <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound">
                             <Columns>
                                 <asp:TemplateField HeaderText="Id" Visible="False">
                                     <EditItemTemplate>
@@ -48,6 +48,12 @@
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="LblSurname" runat="server" Text='<%# Bind("Surname") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Email:">
+                                    <EditItemTemplate>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Phone:">
@@ -140,7 +146,9 @@
                                             <%# Eval("Surname") %>
                                         </td>
                                         <td>
-                                            
+                                            <%# Eval("Email[0]") %><br />
+                                            <%# Eval("Email[0]") %><br />
+                                            <%# Eval("Email[0]") %>
                                         </td>
                                         <td>
                                             <%# Eval("Telephone") %>

@@ -29,7 +29,7 @@ namespace Project
             else
             {
                 SetUserButtons();
-            }            
+            }
         }
 
         private void SetUserButtons()
@@ -38,6 +38,20 @@ namespace Project
             Person p = manager.GetPerson(Guid.Parse(Session["user"].ToString()));
             MasterMail.NavigateUrl = $"mailto:{p.Email[0]}";
             MasterMail.Text = $"{p.Name} {p.Surname}";
+
+            SetUserPermission(p);
+        }
+
+        private void SetUserPermission(Person p)
+        {
+            if (!p.Admin)
+            {
+                if (!Request.Url.ToString().Contains("List"))
+                {
+                    Session["error"] = $"{p.Name} {p.Surname} you are not admin";
+                    Response.Redirect("~/List.aspx");
+                }
+            }
         }
 
         protected void MasterLogout_Click(object sender, EventArgs e)
