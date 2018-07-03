@@ -22,7 +22,7 @@
                 </div>
                 <%-- Content --%>
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="panel-body">                        
+                    <div class="panel-body">
 
                         <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound">
                             <Columns>
@@ -36,7 +36,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Name:">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxName" CssClass="form-control" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                                        <asp:TextBox ID="TxName" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="LblName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
@@ -44,21 +44,17 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Surname:">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxtSurname" CssClass="form-control" runat="server" Text='<%# Bind("Surname") %>'></asp:TextBox>
+                                        <asp:TextBox ID="TxtSurname" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Surname") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="LblSurname" runat="server" Text='<%# Bind("Surname") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Email:">
-                                    <EditItemTemplate>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                    </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Phone:">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxtPhone" CssClass="form-control" runat="server" Text='<%# Bind("Telephone") %>'></asp:TextBox>
+                                        <asp:TextBox ID="TxtPhone" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Telephone") %>'></asp:TextBox>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="LblPhone" runat="server" Text='<%# Bind("Telephone") %>'></asp:Label>
@@ -66,21 +62,21 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Status:" ShowHeader="False">
                                     <EditItemTemplate>
-                                        <asp:DropDownList ID="DdlEmail" CssClass="form-control" runat="server"
+                                        <asp:DropDownList ID="DdlEmail" CssClass="form-control input-sm" runat="server"
                                             SelectedValue='<%# Eval("Admin").ToString() %>'>
                                             <asp:ListItem Value="True">Admin</asp:ListItem>
                                             <asp:ListItem Value="False">User</asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:DropDownList ID="DdlEmail" CssClass="form-control" disabled="disabled" runat="server"
+                                        <asp:DropDownList ID="DdlEmail" CssClass="form-control input-sm" disabled="disabled" runat="server"
                                             SelectedValue='<%# Eval("Admin").ToString() %>'>
                                             <asp:ListItem Value="True">Admin</asp:ListItem>
                                             <asp:ListItem Value="False">User</asp:ListItem>
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ShowEditButton="True" />
+                                <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="noAdmin" />
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -160,7 +156,9 @@
                                             <%# Eval("City") %>
                                         </td>
                                         <td>
-                                            <asp:HyperLink NavigateUrl='<%# "~/Update.aspx?Id=" + Eval("id") %>' Text="Edit" CssClass="btn btn-primary" runat="server" />
+                                            <asp:HyperLink NavigateUrl='<%# "~/Update.aspx?Id=" + Eval("id") %>' Text="Edit" 
+                                                CssClass="btn btn-primary noAdmin"
+                                                runat="server" />
                                         </td>
                                     </tr>
 
@@ -170,8 +168,8 @@
                                 </table>
                             </FooterTemplate>
                         </asp:Repeater>                        
-
                     </div>
+                </div>
             </div>
         </div>
     </div>

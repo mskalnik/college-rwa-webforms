@@ -1,6 +1,6 @@
 d687a385-5e93-452b-8831-92fa022eaba1|Main|Admin|admin@mail.com~admin@email.com~admin@admin.com~|+1234567890|123|True|Helsinki
 
-724bfe3b-4ca4-4510-8961-143ba775fa2b|Kurac|Dragi|123~|fer|123|False|Zagreb
+724bfe3b-4ca4-4510-8961-143ba775fa2b|Kurac12|123@123|HATRERHEAHER~|fer|123|False|Zagreb
 
 13118402-c4b4-45d2-87f0-0d93529c15fb|fwegaerg|agergrae|123~|aregeagae|123|False|Zagreb
 
