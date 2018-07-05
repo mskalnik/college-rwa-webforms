@@ -78,7 +78,9 @@
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="noAdmin" />
+                                <asp:CommandField
+                                    ShowEditButton="True"
+                                />
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -156,8 +158,10 @@
                                             <%# Eval("City") %>
                                         </td>
                                         <td>
-                                            <asp:HyperLink NavigateUrl='<%# "~/Update.aspx?Id=" + Eval("id") %>' Text="Edit" 
-                                                CssClass="btn btn-primary noAdmin"
+                                            <asp:HyperLink 
+                                                NavigateUrl='<%# "~/Update.aspx?Id=" + Eval("id") %>' 
+                                                Text="Edit"
+                                                CssClass='<%# GotAdminPrivileges() ? "btn btn-primary" : "hidden" %>'
                                                 runat="server" />
                                         </td>
                                     </tr>

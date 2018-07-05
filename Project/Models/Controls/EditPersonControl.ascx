@@ -50,6 +50,7 @@
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Email required" ControlToValidate="TxtEmail" Display="Dynamic" ForeColor="Red" ValidationGroup="MyValidation">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxtEmail" Display="Dynamic" ErrorMessage="Wrong email format" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="MyValidation">*</asp:RegularExpressionValidator>
             </td>
         </tr>
         <%-- Telephone --%>

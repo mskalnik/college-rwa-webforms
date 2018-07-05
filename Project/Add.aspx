@@ -19,6 +19,7 @@
                 </div>
                 <div class="form-group">
                     <asp:Label ID="LblEmail" AssociatedControlID="TxtEmail" runat="server" Text="Email:"></asp:Label>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxtEmail" Display="Dynamic" ErrorMessage="Wrong email format" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="MyValidationGroup">*</asp:RegularExpressionValidator>
                     <asp:TextBox ID="TxtEmail" CssClass="form-control" runat="server" />
                     <asp:TextBox ID="TxtEmail1" CssClass="form-control hidden" runat="server" />
                     <asp:TextBox ID="TxtEmail2" CssClass="form-control hidden" runat="server" />
@@ -53,13 +54,13 @@
                     <asp:Label ID="LblPassword" AssociatedControlID="TxtPassword" runat="server" Text="Password:"></asp:Label>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TxtPasswordRepeat" ControlToValidate="TxtPassword" Display="Dynamic" ErrorMessage="Passwords must match" ForeColor="Red" ValidationGroup="MyValidationGroup">*</asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtPassword" Display="Dynamic" ErrorMessage="Password is required" ForeColor="Red" ValidationGroup="MyValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:TextBox ID="TxtPassword" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="TxtPassword" TextMode="Password" CssClass="form-control" runat="server" />
                 </div>
                 <div class="form-group">
                     <asp:Label ID="LblPasswordRepeat" AssociatedControlID="TxtPasswordRepeat" runat="server" Text="Repeat password:"></asp:Label>
                     <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="TxtPassword" ControlToValidate="TxtPasswordRepeat" Display="Dynamic" ErrorMessage="Passwords must match" ForeColor="Red" ValidationGroup="MyValidationGroup">*</asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TxtPasswordRepeat" Display="Dynamic" ErrorMessage="Password repeat is required" ForeColor="Red" ValidationGroup="MyValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:TextBox ID="TxtPasswordRepeat" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="TxtPasswordRepeat" TextMode="Password" CssClass="form-control" runat="server" />
                 </div>
                 <div class="form-group">
                     <asp:Button Text="Add" CssClass="btn btn-primary add-button" runat="server" ValidationGroup="MyValidationGroup" ID="BtnAdd" OnClick="BtnAdd_Click" />

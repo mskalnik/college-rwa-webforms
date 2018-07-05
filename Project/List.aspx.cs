@@ -18,6 +18,16 @@ namespace Project
                 ShowData();
         }
 
+        protected bool GotAdminPrivileges()
+        {
+            if (Session["user"] != null)
+            {
+                Person p = manager.GetPerson(Guid.Parse(Session["user"].ToString()));
+                return p.Admin;
+            }
+            return false;
+        }
+
         private void ShowData()
         {
             GwPersons.DataSource = manager.GetPersons();
@@ -102,6 +112,14 @@ namespace Project
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
+                    //if (!GotAdminPrivileges())
+                    //{
+                    //    foreach (var c in e.Row.Cells[6].Controls)
+                    //    {
+                    //        ((CommandField)c).Visible = false;
+                    //    }
+                    //}
+
                     if (e.Row.RowState == DataControlRowState.Alternate || e.Row.RowState == DataControlRowState.Normal)
                     {
                         e.Row.Cells[3].Controls.Add(

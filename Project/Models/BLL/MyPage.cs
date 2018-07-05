@@ -9,12 +9,11 @@ namespace Project.Models.BLL
 {
     public class MyPage : System.Web.UI.Page
     {
-        public static Manager manager;
+        public Manager manager = new Manager();
 
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
-            ChangeManager();
 
             if (Request.Cookies["theme"] != null)
             {
@@ -36,18 +35,18 @@ namespace Project.Models.BLL
             }
         }
 
-        public void ChangeManager()
+        public static Repos ChangeManager()
         {
             if (HttpContext.Current.Request.Cookies["repo"] != null && HttpContext.Current.Request.Cookies["repo"].Value != "0")
             {
                 string repo = HttpContext.Current.Request.Cookies["repo"].Value;
                 if (repo == "txt")
-                    manager = new Manager(Repos.File);
+                    return Repos.File;
                 else
-                    manager = new Manager(Repos.Database);
+                    return Repos.Database;
             }
             else
-                manager = new Manager(Repos.Database);
+                return Repos.Database;
         }
 
         protected override void InitializeCulture()

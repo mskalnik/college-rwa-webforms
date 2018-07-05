@@ -41,6 +41,7 @@ namespace Project.Models.Controls
         private void UpdateValidationGroup(Person p)
         {
             ControlCollection cc = Controls;
+            cc.OfType<RegularExpressionValidator>().ToList().ForEach(c => c.ValidationGroup += p.Id);
             cc.OfType<RequiredFieldValidator>().ToList().ForEach(c => c.ValidationGroup += p.Id);
             cc.OfType<ValidationSummary>().ToList().ForEach(c => c.ValidationGroup += p.Id);
             cc.OfType<Button>().ToList().ForEach(c => c.ValidationGroup += p.Id);

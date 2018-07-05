@@ -17,7 +17,7 @@
         <div class="form-group">
             <asp:Label Text="Password:" AssociatedControlID="TxtLoginPassword" runat="server" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email required" ControlToValidate="TxtLoginPassword" Display="Dynamic" ForeColor="Red" ValidationGroup="VgSomething">*</asp:RequiredFieldValidator>
-            <asp:TextBox ID="TxtLoginPassword" CssClass="form-control" runat="server" />
+            <asp:TextBox ID="TxtLoginPassword" TextMode="Password" CssClass="form-control" runat="server" />
         </div>
 
         <div class="form-group">

@@ -11,9 +11,9 @@ namespace Project.Models.BLL
     {
         public static IRepo repo;
 
-        public Manager(Repos r = Repos.Database)
+        public Manager()
         {
-            repo = RepoFactory.GetRepo(r);
+            repo = RepoFactory.GetRepo(MyPage.ChangeManager());
         }
 
         //****************************Repo functions***************************************
