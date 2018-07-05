@@ -12,12 +12,13 @@ namespace Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Url.ToString().Contains("Login"))
-            {
-                MasterMail.CssClass += " hidden";
-                MasterLogout.CssClass += " hidden";
-            }
+            CheckToastr();
+            VisitLoginHandler();
+            CheckUser();            
+        }
 
+        private void CheckUser()
+        {
             if (Session["user"] == null)
             {
                 if (Request.Cookies["user"] != null)
@@ -29,6 +30,30 @@ namespace Project
             else
             {
                 SetUserButtons();
+            }
+        }
+
+        private void VisitLoginHandler()
+        {
+            if (Request.Url.ToString().Contains("Login"))
+            {
+                MasterMail.CssClass += " hidden";
+                MasterLogout.CssClass += " hidden";
+            }
+        }
+
+        private void CheckToastr()
+        {
+            if (Session["error"] != null)
+            {
+                MyPage.ShowToastr(Page, Session["error"].ToString(), "Error!", Toastr.Error);
+                Session.Remove("error");
+            }
+
+            if (Session["info"] != null)
+            {
+                MyPage.ShowToastr(Page, Session["info"].ToString(), "Info!", Toastr.Success);
+                Session.Remove("info");
             }
         }
 

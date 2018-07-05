@@ -24,6 +24,8 @@ namespace Project.Models.BLL
         }
 
         public override string ToString() => $"{Id} {Name} {Surname} {EmailsFromFile()} {Telephone} {Password} {Admin} {City}";
+        public override int GetHashCode() => this.Id.GetHashCode();
+        private bool CompareEmails(List<string> first, List<string> second) => first.Intersect(second).Any();
 
         public string ToFile()
         {
@@ -55,17 +57,7 @@ namespace Project.Models.BLL
                 return false;
 
             return CompareEmails(this.Email, other.Email);
-        }
-
-        public override int GetHashCode()
-        {
-            return this.Id.GetHashCode();
-        }
-
-        private bool CompareEmails(List<string> first, List<string> second)
-        {
-            return first.Intersect(second).Any();
-        }
+        }        
 
         public static Person FromFile(string line)
         {

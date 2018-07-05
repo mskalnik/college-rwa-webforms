@@ -13,7 +13,7 @@ namespace Project.Models.BLL
             switch (repo)
             {
                 case Repos.Database:
-                    //return new DatabaseRepo();
+                    return new DatabaseRepo();
                 case Repos.File:
                     return new FileRepo();
                 default:

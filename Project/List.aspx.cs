@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Project
@@ -13,13 +14,8 @@ namespace Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["error"] != null)
-            {
-                ShowToastr(Page, Session["error"].ToString(), "Error!", Toastr.Error);
-                Session.Remove("error");
-            }
             if (!IsPostBack)
-                ShowData(); 
+                ShowData();
         }
 
         private void ShowData()
@@ -44,30 +40,33 @@ namespace Project
         }
 
         protected void GwPersons_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
+        {            
             GridViewRow row = GwPersons.Rows[e.RowIndex];
             Guid id = Guid.Parse(GetControl<Label>(row.Cells[0].Controls).Text);
             string name = GetControl<TextBox>(row.Cells[1].Controls).Text;
             string surname = GetControl<TextBox>(row.Cells[2].Controls).Text;
-            List<string> emails = new List<string>();
-            foreach (var c in row.Cells[3].Controls)
+            List<string> emails = new List<string>
             {
-                emails.Add(c.ToString());           
-            }
+                e.NewValues["LblEmailBox"].ToString()
+            };
             string telephone = GetControl<TextBox>(row.Cells[4].Controls).Text;
             bool admin = bool.Parse(GetControl<DropDownList>(row.Cells[5].Controls).SelectedValue);
 
             Person p = manager.GetPerson(id);
             p.Name = name;
-            for (int i = 0; i < emails.Count; i++)
-            {
-                p.Email[i] = emails[i];
-            }
+            //OVO RADI < NE DIRAJ
+            //for (int i = 0; i < emails.Count; i++)
+            //{
+            //    p.Email[i] = emails[i];
+            //}
             p.Surname = surname;
             p.Telephone = telephone;
             p.Admin = admin;
 
-            manager.UpdatePerson(p);
+            if (!manager.UpdatePerson(p))
+                ShowToastr(Page, $"{p.Name} {p.Surname} not updated! ", "Error adding", Toastr.Warning);
+
+            ShowToastr(Page, $"{p.Name} {p.Surname} updated!", "User updated", Toastr.Success);
             GwPersons.EditIndex = -1;
             ShowData();
         }
@@ -105,7 +104,15 @@ namespace Project
                 {
                     if (e.Row.RowState == DataControlRowState.Alternate || e.Row.RowState == DataControlRowState.Normal)
                     {
-                        e.Row.Cells[3].Controls.Add(new Label { Text = em + "<br/>" });
+                        e.Row.Cells[3].Controls.Add(
+                            new HyperLink
+                            {
+                                NavigateUrl = "mailto:" + em,
+                                Text = em,
+                                ID = "LblEmailBox"
+                            }                            
+                        );
+                        e.Row.Cells[3].Controls.Add(new LiteralControl("<br/>"));
                     }
                     else
                     {
@@ -114,6 +121,27 @@ namespace Project
                 }
             }
 
+        }
+
+        protected void RepeaterPerson_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                string id = ((Label)e.Item.FindControl("RpId")).Text;
+                Person p = manager.GetPerson(Guid.Parse(id));
+                HtmlTableCell td = (HtmlTableCell)e.Item.FindControl("RpEmail");
+                foreach (var em in p.Email)
+                {
+                    LiteralControl br = new LiteralControl("<br />");
+                    HyperLink email = new HyperLink
+                    {
+                        Text = em,
+                        NavigateUrl = "mailto:" + em
+                    };
+                    td.Controls.Add(email);
+                    td.Controls.Add(br);
+                }
+            }
         }
     }
 }

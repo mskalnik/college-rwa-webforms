@@ -106,7 +106,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="panel-body">
                         
-                        <asp:Repeater ID="RepeaterPerson" runat="server">
+                        <asp:Repeater ID="RepeaterPerson" OnItemDataBound="RepeaterPerson_ItemDataBound" runat="server">
                             <HeaderTemplate>
                                 <table class="table table-hover">
                                     <tr style="background:#333; color:white;">
@@ -135,16 +135,14 @@
                             <ItemTemplate>
                                     
                                     <tr>
+                                        <asp:Label Text='<%# Eval("Id") %>' CssClass="hidden" ID="RpId" runat="server" />
                                         <td>
                                             <%# Eval("Name") %>
                                         </td>
                                         <td>
                                             <%# Eval("Surname") %>
                                         </td>
-                                        <td>
-                                            <%# Eval("Email[0]") %><br />
-                                            <%# Eval("Email[0]") %><br />
-                                            <%# Eval("Email[0]") %>
+                                        <td id="RpEmail" runat="server">
                                         </td>
                                         <td>
                                             <%# Eval("Telephone") %>

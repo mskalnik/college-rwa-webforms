@@ -8,7 +8,7 @@ namespace Project.Models.BLL
 {
     public class Manager : IRepo
     {
-        private static IRepo repo = RepoFactory.GetRepo(Repos.File);
+        private static IRepo repo = RepoFactory.GetRepo(Repos.Database);
 
         //****************************Repo functions***************************************
         public IList<Person> GetPersons()       => repo.GetPersons();
@@ -18,7 +18,7 @@ namespace Project.Models.BLL
         public bool UpdatePerson(Person p)      => repo.UpdatePerson(p);
 
         //****************************Manager functions*************************************
-        public ISet<string> GetCities()
+        public IList<string> GetCities()
         {
             //ISet<string> cities = new HashSet<string>();
             //foreach (var p in persons)
