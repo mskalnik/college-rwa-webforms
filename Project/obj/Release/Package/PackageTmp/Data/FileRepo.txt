@@ -1,0 +1,4 @@
+d687a385-5e93-452b-8831-92fa022eaba1|Main|Admin|admin@mail.com~admin@email.com~admin@admin.com~|+1234567890|123|True|Helsinki
+
+724bfe3b-4ca4-4510-8961-143ba775fa2b|Kurac12|Dragi|4325@dsa.me~|ferd|user|True|Zagreb
+

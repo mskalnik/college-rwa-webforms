@@ -42,7 +42,7 @@ namespace Project
             if (Request.Cookies["repo"] != null)
                 DdlRepository.SelectedValue = Request.Cookies["repo"].Value;
             else
-                DdlRepository.SelectedIndex = 2;
+                DdlRepository.SelectedIndex = 1;
         }
 
         protected void DdlRepository_SelectedIndexChanged(object sender, EventArgs e)
