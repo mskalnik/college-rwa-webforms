@@ -2,5 +2,3 @@ d687a385-5e93-452b-8831-92fa022eaba1|Main|Admin|admin@mail.com~admin@email.com~a
 
 724bfe3b-4ca4-4510-8961-143ba775fa2b|Kurac12|Dragi|HATRERHEAHER3~|fer|123|True|Zagreb
 
-13118402-c4b4-45d2-87f0-0d93529c15fb|fwegaerg|agergrae|1234~|aregeagae|1234|False|Zagreb
-

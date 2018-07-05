@@ -9,19 +9,21 @@
     </script>
 
     <div class="content-container">
-        <div id="accordin" class="panel-group">
+        <div id="accordion" class="panel-group">
             <%-- FIRST PANEL --%>
             <div class="panel panel-default">
                 <%-- Header --%>
-                <div id="headingOne" class="panel-heading">
+                <div class="panel-heading">
                     <div class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <asp:Label Text="Grid View" runat="server" />
+                        <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <asp:Label Text="GridView" runat="server" />
                         </a>
+                    </h4>
                     </div>
                 </div>
                 <%-- Content --%>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
 
                         <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound">
@@ -95,15 +97,15 @@
             <%-- SECOND PANEL --%>
             <div class="panel panel-default">
                 <%-- Header --%>
-                <div id="headingTwo" class="panel-heading">
+                <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                             <asp:Label Text="Repeater" runat="server" />
                         </a>
                     </h4>
                 </div>
                 <%-- Content --%>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
                         
                         <asp:Repeater ID="RepeaterPerson" OnItemDataBound="RepeaterPerson_ItemDataBound" runat="server">

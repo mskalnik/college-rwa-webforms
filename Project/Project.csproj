@@ -206,7 +206,6 @@
     </Compile>
     <Compile Include="Models\DAL\DatabaseRepo.cs" />
     <Compile Include="Models\DAL\FileRepo.cs" />
-    <Compile Include="Models\DAL\Formats.cs" />
     <Compile Include="Models\DAL\IRepo.cs" />
     <Compile Include="Models\BLL\Person.cs" />
     <Compile Include="Models\DAL\RepoFactory.cs" />

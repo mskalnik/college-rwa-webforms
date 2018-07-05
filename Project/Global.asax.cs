@@ -13,11 +13,11 @@ namespace Project
         {
         }
 
-        //protected void Application_Error(object sender, EventArgs e)
-        //{
-        //    Exception ex = Server.GetLastError().GetBaseException();
-        //    string error = Server.UrlEncode(ex.Message);
-        //    Response.Redirect("Error.aspx?code=" + error);
-        //}
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError().GetBaseException();
+            string error = Server.UrlEncode(ex.Message);
+            Response.Redirect("Error.aspx?code=" + error);
+        }
     }
 }

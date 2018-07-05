@@ -8,7 +8,7 @@ namespace Project.Models.BLL
 {
     public class Manager : IRepo
     {
-        private static IRepo repo = RepoFactory.GetRepo(Repos.Database);
+        public static IRepo repo = RepoFactory.GetRepo(MyPage.GetRepoTypeFromCookie());
 
         //****************************Repo functions***************************************
         public IList<Person> GetPersons()       => repo.GetPersons();
@@ -20,11 +20,6 @@ namespace Project.Models.BLL
         //****************************Manager functions*************************************
         public IList<string> GetCities()
         {
-            //ISet<string> cities = new HashSet<string>();
-            //foreach (var p in persons)
-            //{
-            //    cities.Add(p.City);
-            //}
             return Constants.CITIES;
         }        
 

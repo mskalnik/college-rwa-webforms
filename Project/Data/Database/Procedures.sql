@@ -2,10 +2,7 @@
 CREATE PROCEDURE AddPerson
     @Id         NVARCHAR(36),
     @Name       NVARCHAR(50),
-    @Surname    NVARCHAR(50),
-    @Email1     NVARCHAR(50),
-    @Email2     NVARCHAR(50) = null,
-    @Email3     NVARCHAR(50) = null,
+    @Surname    NVARCHAR(50),    
     @Telephone  NVARCHAR(50),
     @Password   NVARCHAR(50),
     @Admin      BIT,
@@ -13,19 +10,15 @@ CREATE PROCEDURE AddPerson
 AS
     INSERT INTO dbo.Person(Id, [Name], Surname, Telephone, [Password], [Admin], CityId)
     VALUES (@Id, @Name, @Surname, @Telephone, @Password, @Admin, @CityId)
-	
-    IF (@Email1 IS NOT NULL) BEGIN
-        INSERT INTO dbo.Email(Email, PersonID)
-        VALUES (@Email1, @Id)
-    END
-    IF (@Email2 IS NOT NULL) BEGIN
-        INSERT INTO dbo.Email(Email, PersonID)
-        VALUES (@Email2, @Id)
-    END
-    IF (@Email3 IS NOT NULL) BEGIN
-        INSERT INTO dbo.Email(Email, PersonID)
-        VALUES (@Email3, @Id)
-    END
+GO
+
+--ADD EMAIL
+CREATE PROCEDURE AddEmail
+	@Email		NVARCHAR(50),
+	@Id         NVARCHAR(36)
+AS
+	INSERT INTO dbo.Email(Email, PersonID)
+    VALUES (@Email, @Id)
 GO
 
 --DELETE PERSON
@@ -69,9 +62,6 @@ CREATE PROCEDURE UpdatePerson
     @Id         NVARCHAR(36),
     @Name       NVARCHAR(50),
     @Surname    NVARCHAR(50),
-    @Email1     NVARCHAR(50),
-    @Email2     NVARCHAR(50) = null,
-    @Email3     NVARCHAR(50) = null,
     @Telephone  NVARCHAR(50),
     @Password   NVARCHAR(50),
     @Admin      BIT,
@@ -90,17 +80,4 @@ AS
 	
 	DELETE FROM dbo.Email
 	WHERE PersonId = @Id
-	
-	IF (@Email1 IS NOT NULL) BEGIN
-        INSERT INTO dbo.Email(Email, PersonID)
-        VALUES (@Email1, @Id)
-    END
-    IF (@Email2 IS NOT NULL) BEGIN
-        INSERT INTO dbo.Email(Email, PersonID)
-        VALUES (@Email2, @Id)
-    END
-    IF (@Email3 IS NOT NULL) BEGIN
-        INSERT INTO dbo.Email(Email, PersonID)
-        VALUES (@Email3, @Id)
-    END
 GO

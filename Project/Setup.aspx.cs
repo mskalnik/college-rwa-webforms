@@ -12,8 +12,7 @@ namespace Project
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
-            SetSelectedValues();            
-            //manager.GetPersons().ToList().ForEach(Response.Write);
+            SetSelectedValues();
         }
 
         protected void DdlTheme_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +38,19 @@ namespace Project
                 DdlLanguage.SelectedValue = Request.Cookies["language"].Value;
             else
                 DdlLanguage.SelectedIndex = 2;
-        }        
+
+            if (Request.Cookies["repo"] != null)
+                DdlRepository.SelectedValue = Request.Cookies["repo"].Value;
+            else
+                DdlRepository.SelectedIndex = 2;
+        }
+
+        protected void DdlRepository_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateCookie("repo", DdlRepository.SelectedValue);
+            Session.Abandon();
+            Response.Cookies["user"].Expires = DateTime.Now.AddDays(-1);
+            Response.Redirect(Request.Url.AbsolutePath);
+        }
     }
 }

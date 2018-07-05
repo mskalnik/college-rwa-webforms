@@ -1,10 +1,10 @@
-﻿using Project.Models.DAL;
+﻿using Project.Models.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Project.Models.BLL
+namespace Project.Models.DAL
 {
     public static class RepoFactory
     {

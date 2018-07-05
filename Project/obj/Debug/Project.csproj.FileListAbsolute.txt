@@ -117,4 +117,3 @@ C:\Users\mskalnik\Documents\Faculty\2nd-year\4\RWA\exam\web-forms\RwaWebForms\Pr
 C:\Users\mskalnik\Documents\Faculty\2nd-year\4\RWA\exam\web-forms\RwaWebForms\Project\obj\Debug\Project.csproj.CopyComplete
 C:\Users\mskalnik\Documents\Faculty\2nd-year\4\RWA\exam\web-forms\RwaWebForms\Project\obj\Debug\Project.dll
 C:\Users\mskalnik\Documents\Faculty\2nd-year\4\RWA\exam\web-forms\RwaWebForms\Project\obj\Debug\Project.pdb
-C:\Users\mskalnik\Documents\Faculty\2nd-year\4\RWA\exam\web-forms\RwaWebForms\Project\obj\Debug\Project.csprojAssemblyReference.cache

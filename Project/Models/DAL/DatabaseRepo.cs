@@ -15,17 +15,25 @@ namespace Project.Models.DAL
 
         public bool AddPerson(Person p)
         {
-            throw new NotImplementedException();
+            SqlHelper.ExecuteNonQuery(cs, "AddPerson", p.Id.ToString(), p.Name, p.Surname, p.Telephone, p.Password, p.Admin, int.Parse(Constants.CITIES.IndexOf(p.City).ToString()));
+            foreach (var e in p.Email)
+            {
+                if (e.Trim().Length > 0)
+                    SqlHelper.ExecuteNonQuery(cs, "AddEmail", e, p.Id.ToString());
+            }
+            return true;
         }
 
         public bool DeletePerson(Guid id)
         {
-            throw new NotImplementedException();
+            SqlHelper.ExecuteNonQuery(cs, "DeletePerson", id.ToString());            
+            return true;
         }
 
         public Person GetPerson(Guid id)
         {
             DataRow row = SqlHelper.ExecuteDataset(cs, "GetPerson", id.ToString()).Tables[0].Rows[0];
+            
             return new Person
             {
                 Id = Guid.Parse(row["Id"].ToString()),
@@ -35,7 +43,7 @@ namespace Project.Models.DAL
                 Telephone = row["Telephone"].ToString(),
                 Password = row["Password"].ToString(),
                 Admin = bool.Parse(row["Admin"].ToString()),
-                City = Constants.CITIES[(int)row["CityId"] - 1]
+                City = Constants.CITIES[(int)row["CityId"]]
             };
         }
 
@@ -45,7 +53,7 @@ namespace Project.Models.DAL
             DataSet ds = SqlHelper.ExecuteDataset(cs, "GetEmails", id.ToString());
             DataTable tblEmails = ds.Tables[0];
             foreach (DataRow row in tblEmails.Rows)
-            {
+            {             
                 emails.Add(row["Email"].ToString());
             }
             return emails;
@@ -75,7 +83,12 @@ namespace Project.Models.DAL
 
         public bool UpdatePerson(Person p)
         {
-            throw new NotImplementedException();
+            SqlHelper.ExecuteNonQuery(cs, "UpdatePerson", p.Id.ToString(), p.Name, p.Surname, p.Telephone, p.Password, p.Admin, int.Parse(Constants.CITIES.IndexOf(p.City).ToString()));
+            foreach (var e in p.Email)
+            {
+                SqlHelper.ExecuteNonQuery(cs, "AddEmail", e, p.Id.ToString());
+            }
+            return true;
         }
 
 

@@ -104,7 +104,14 @@
             <td></td>
             <td>
                 <asp:Button Text="Edit" ID="BtnEdit" CssClass="btn btn-primary" ValidationGroup="MyValidation" runat="server" OnClick="BtnEdit_Click" />
-                <asp:Button Text="Delete" ID="BtnDelete" CssClass="btn btn-warning" ValidationGroup="MyValidation" runat="server" data-toggle="modal" data-target="#myModal" OnClientClick="confirm('Delete person');" OnClick="BtnDelete_Click" />
+                <asp:Button 
+                    Text="Delete" 
+                    ID="BtnDelete" 
+                    CssClass="btn btn-warning" 
+                    ValidationGroup="MyValidation" 
+                    runat="server"
+                    OnClientClick="return confirm('Sure you want to delete? ');"
+                    OnClick="BtnDelete_Click" />
             </td>
             <td></td>
         </tr>

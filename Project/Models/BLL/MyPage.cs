@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Models.DAL;
+using System;
 using System.Globalization;
 using System.Threading;
 using System.Web;
@@ -26,6 +27,20 @@ namespace Project.Models.BLL
                 if (theme != "0")
                     Theme = theme;
             }
+        }
+
+        public static Repos GetRepoTypeFromCookie()
+        {
+            if (HttpContext.Current.Request.Cookies["repo"] != null && HttpContext.Current.Request.Cookies["repo"].Value != "0")
+            {
+                string repo = HttpContext.Current.Request.Cookies["repo"].Value;
+                if (repo == "txt")
+                    return Repos.File;
+                else
+                    return Repos.Database;
+            }
+            else
+                return Repos.Database;
         }
 
         protected override void InitializeCulture()

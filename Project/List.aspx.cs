@@ -45,10 +45,10 @@ namespace Project
             Guid id = Guid.Parse(GetControl<Label>(row.Cells[0].Controls).Text);
             string name = GetControl<TextBox>(row.Cells[1].Controls).Text;
             string surname = GetControl<TextBox>(row.Cells[2].Controls).Text;
-            List<string> emails = new List<string>
-            {
-                e.NewValues["LblEmailBox"].ToString()
-            };
+            //List<string> emails = new List<string>
+            //{
+            //    e.NewValues["LblEmailBox"].ToString()
+            //};
             string telephone = GetControl<TextBox>(row.Cells[4].Controls).Text;
             bool admin = bool.Parse(GetControl<DropDownList>(row.Cells[5].Controls).SelectedValue);
 

@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <asp:Label Text="Repository:" ID="LblRepository" runat="server" meta:resourcekey="LblRepositoryResource1"/>
-            <asp:DropDownList runat="server" ID="DdlRepository" CssClass="form-control" meta:resourcekey="DdlRepositoryResource1">
+            <asp:DropDownList runat="server" AutoPostBack="True" ID="DdlRepository" CssClass="form-control" meta:resourcekey="DdlRepositoryResource1" OnSelectedIndexChanged="DdlRepository_SelectedIndexChanged">
                 <asp:ListItem Text="--- Choose ---" Value="0" meta:resourcekey="ListItemResource8"/>
                 <asp:ListItem Text="DataBase" Value="db" meta:resourcekey="ListItemResource9"/>
                 <asp:ListItem Text="Text" Value="txt" meta:resourcekey="ListItemResource10"/>
