@@ -64,8 +64,10 @@ namespace Project
 
         protected void BtnLoginInfo_Click(object sender, EventArgs e)
         {
-            TxtLoginEmail.Text = "admin@mail.com";
-            TxtLoginPassword.Text = "123";
+            if (PnlInfo.CssClass == "alert alert-info")
+                PnlInfo.CssClass = "hidden";
+            else
+                PnlInfo.CssClass = "alert alert-info";
         }
     }
 }

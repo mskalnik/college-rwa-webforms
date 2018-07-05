@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Person List" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Project.List" %>
+﻿<%@ Page Title="Person List" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Project.List" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
@@ -17,7 +17,7 @@
                     <div class="panel-title">
                         <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                            <asp:Label Text="GridView" runat="server" />
+                            <asp:Label Text="GridView" runat="server" meta:resourcekey="LabelResource1" />
                         </a>
                     </h4>
                     </div>
@@ -26,60 +26,60 @@
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
 
-                        <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound">
+                        <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound" meta:resourcekey="GwPersonsResource1">
                             <Columns>
-                                <asp:TemplateField HeaderText="Id" Visible="False">
+                                <asp:TemplateField HeaderText="Id" Visible="False" meta:resourcekey="TemplateFieldResource1">
                                     <EditItemTemplate>
-                                        <asp:Label ID="LblId" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
+                                        <asp:Label ID="LblId" runat="server" Text='<%# Bind("Id") %>' meta:resourcekey="LblIdResource1"></asp:Label>
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="LblId" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
+                                        <asp:Label ID="LblId" runat="server" Text='<%# Bind("Id") %>' meta:resourcekey="LblIdResource2"></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Name:">
+                                <asp:TemplateField HeaderText="Name:" meta:resourcekey="TemplateFieldResource2">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxName" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                                        <asp:TextBox ID="TxName" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Name") %>' meta:resourcekey="TxNameResource1"></asp:TextBox>
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="LblName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                                        <asp:Label ID="LblName" runat="server" Text='<%# Bind("Name") %>' meta:resourcekey="LblNameResource1"></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Surname:">
+                                <asp:TemplateField HeaderText="Surname:" meta:resourcekey="TemplateFieldResource3">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxtSurname" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Surname") %>'></asp:TextBox>
+                                        <asp:TextBox ID="TxtSurname" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Surname") %>' meta:resourcekey="TxtSurnameResource1"></asp:TextBox>
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="LblSurname" runat="server" Text='<%# Bind("Surname") %>'></asp:Label>
+                                        <asp:Label ID="LblSurname" runat="server" Text='<%# Bind("Surname") %>' meta:resourcekey="LblSurnameResource1"></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Email:">
+                                <asp:TemplateField HeaderText="Email:" meta:resourcekey="TemplateFieldResource4">
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Phone:">
+                                <asp:TemplateField HeaderText="Phone:" meta:resourcekey="TemplateFieldResource5">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="TxtPhone" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Telephone") %>'></asp:TextBox>
+                                        <asp:TextBox ID="TxtPhone" CssClass="form-control input-sm" runat="server" Text='<%# Bind("Telephone") %>' meta:resourcekey="TxtPhoneResource1"></asp:TextBox>
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="LblPhone" runat="server" Text='<%# Bind("Telephone") %>'></asp:Label>
+                                        <asp:Label ID="LblPhone" runat="server" Text='<%# Bind("Telephone") %>' meta:resourcekey="LblPhoneResource1"></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Status:" ShowHeader="False">
+                                <asp:TemplateField HeaderText="Status:" ShowHeader="False" meta:resourcekey="TemplateFieldResource6">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="DdlEmail" CssClass="form-control input-sm" runat="server"
-                                            SelectedValue='<%# Eval("Admin").ToString() %>'>
-                                            <asp:ListItem Value="True">Admin</asp:ListItem>
-                                            <asp:ListItem Value="False">User</asp:ListItem>
+                                            SelectedValue='<%# Eval("Admin").ToString() %>' meta:resourcekey="DdlEmailResource1">
+                                            <asp:ListItem Value="True" meta:resourcekey="ListItemResource1" Selected="True">Admin</asp:ListItem>
+                                            <asp:ListItem Value="False" meta:resourcekey="ListItemResource2">User</asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:DropDownList ID="DdlEmail" CssClass="form-control input-sm" disabled="disabled" runat="server"
-                                            SelectedValue='<%# Eval("Admin").ToString() %>'>
-                                            <asp:ListItem Value="True">Admin</asp:ListItem>
-                                            <asp:ListItem Value="False">User</asp:ListItem>
+                                            SelectedValue='<%# Eval("Admin").ToString() %>' meta:resourcekey="DdlEmailResource2">
+                                            <asp:ListItem Value="True" meta:resourcekey="ListItemResource3" Selected="True">Admin</asp:ListItem>
+                                            <asp:ListItem Value="False" meta:resourcekey="ListItemResource4">User</asp:ListItem>
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField
-                                    ShowEditButton="True"
+                                    ShowEditButton="True" meta:resourcekey="CommandFieldResource1"
                                 />
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -102,7 +102,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                            <asp:Label Text="Repeater" runat="server" />
+                            <asp:Label Text="Repeater" runat="server" meta:resourcekey="LabelResource2" />
                         </a>
                     </h4>
                 </div>
@@ -115,22 +115,22 @@
                                 <table class="table table-hover">
                                     <tr style="background:#333; color:white;">
                                         <th>
-                                            <asp:Label Text="Name:" runat="server" />
+                                            <asp:Label Text="Name:" runat="server" meta:resourcekey="LabelResource3" />
                                         </th>
                                         <th>
-                                            <asp:Label Text="Surname:" runat="server" />
+                                            <asp:Label Text="Surname:" runat="server" meta:resourcekey="LabelResource4" />
                                         </th>
                                         <th>
-                                            <asp:Label Text="Email:" runat="server" />
+                                            <asp:Label Text="Email:" runat="server" meta:resourcekey="LabelResource5" />
                                         </th>
                                         <th>
-                                            <asp:Label Text="Telephone:" runat="server" />
+                                            <asp:Label Text="Telephone:" runat="server" meta:resourcekey="LabelResource6" />
                                         </th>
                                         <th>
-                                            <asp:Label Text="Status:" runat="server" />
+                                            <asp:Label Text="Status:" runat="server" meta:resourcekey="LabelResource7" />
                                         </th>
                                         <th>
-                                            <asp:Label Text="City" runat="server" />
+                                            <asp:Label Text="City" runat="server" meta:resourcekey="LabelResource8" />
                                         </th>
                                         <th></th>
                                     </tr>                                
@@ -139,7 +139,7 @@
                             <ItemTemplate>
                                     
                                     <tr>
-                                        <asp:Label Text='<%# Eval("Id") %>' CssClass="hidden" ID="RpId" runat="server" />
+                                        <asp:Label Text='<%# Eval("Id") %>' CssClass="hidden" ID="RpId" runat="server" meta:resourcekey="RpIdResource1" />
                                         <td>
                                             <%# Eval("Name") %>
                                         </td>
@@ -162,7 +162,7 @@
                                                 NavigateUrl='<%# "~/Update.aspx?Id=" + Eval("id") %>' 
                                                 Text="Edit"
                                                 CssClass='<%# GotAdminPrivileges() ? "btn btn-primary" : "hidden" %>'
-                                                runat="server" />
+                                                runat="server" meta:resourcekey="HyperLinkResource1" />
                                         </td>
                                     </tr>
 

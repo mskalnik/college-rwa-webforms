@@ -85,7 +85,9 @@
     <Content Include="Content\my-ultra-cool.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
-    <Content Include="Data\Database\Table.sql" />
+    <Content Include="Data\Database\InsertAdmin.sql" />
+    <Content Include="Data\Database\Procedures.sql" />
+    <Content Include="Data\Database\Tables.sql" />
     <Content Include="Data\FileRepo.txt" />
     <Content Include="Edit.aspx" />
     <Content Include="Error.aspx" />
@@ -257,6 +259,69 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Setup.aspx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Error.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\List.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Login.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Update.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Controls\App_LocalResources\EditPersonControl.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Add.aspx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.aspx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Error.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Error.aspx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\List.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\List.aspx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Login.aspx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Login.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Update.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Update.aspx .hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Controls\App_LocalResources\EditPersonControl.ascx.hr.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Controls\App_LocalResources\EditPersonControl.ascx.en.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
