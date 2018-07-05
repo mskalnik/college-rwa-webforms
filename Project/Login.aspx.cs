@@ -13,6 +13,13 @@ namespace Project
         protected void Page_Load(object sender, EventArgs e)
         {
             TxtLoginEmail.Focus();
+            if (Session["user"] != null)
+            {
+                Guid id = Guid.Parse(Session["user"].ToString());
+                if (manager.IsLogged(id))
+                    Response.Redirect("~/List.aspx");
+            }
+            
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
@@ -34,12 +41,17 @@ namespace Project
             }
             else
             {
-                Session["user"] = p.Id;
-                if (CbLoginRemember.Checked)
-                    CreateCookie("user", p.Id.ToString());
-
-                Response.Redirect("~/List.aspx");
+                UserLogIn(p);                
             }
+        }
+
+        private void UserLogIn(Person p)
+        {
+            Session["user"] = p.Id;
+            if (CbLoginRemember.Checked)
+                CreateCookie("user", p.Id.ToString());
+
+            Response.Redirect("~/List.aspx");
         }
 
         private void ResetData(string username, string password, bool check)

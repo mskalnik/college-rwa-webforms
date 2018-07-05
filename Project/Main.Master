@@ -64,4 +64,11 @@
                 <asp:Label Text="<%$ Resources:Master, SignThird %>" runat="server" />
             </p>
             <p>
-                <asp:Label ID="Label1" CssClass="badge" runat="server" Text="<%$ Resources:Master, Repo %>"></asp:Label></p></footer></div></form></body></html>
+                <asp:Label ID="LblCurrentRepo" CssClass="badge" runat="server" Text="<%$ Resources:Master, Repo %>"></asp:Label>
+            </p>
+        </footer>
+        </div>
+    </form>
+</body>
+
+</html>

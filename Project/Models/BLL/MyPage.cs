@@ -9,17 +9,12 @@ namespace Project.Models.BLL
 {
     public class MyPage : System.Web.UI.Page
     {
-        public static Manager manager = new Manager();
+        public static Manager manager;
+
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
-            if (!Request.Url.ToString().Contains("Login"))
-            {
-                if (Request.Cookies["user"] == null && Session["user"] == null)
-                {
-                    Response.Redirect("~/Login.aspx");
-                }
-            }
+            ChangeManager();
 
             if (Request.Cookies["theme"] != null)
             {
@@ -29,18 +24,30 @@ namespace Project.Models.BLL
             }
         }
 
-        public static Repos GetRepoTypeFromCookie()
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            if (!Request.Url.ToString().Contains("Login"))
+            {
+                if (Request.Cookies["user"] == null && Session["user"] == null)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+        }
+
+        public void ChangeManager()
         {
             if (HttpContext.Current.Request.Cookies["repo"] != null && HttpContext.Current.Request.Cookies["repo"].Value != "0")
             {
                 string repo = HttpContext.Current.Request.Cookies["repo"].Value;
                 if (repo == "txt")
-                    return Repos.File;
+                    manager = new Manager(Repos.File);
                 else
-                    return Repos.Database;
+                    manager = new Manager(Repos.Database);
             }
             else
-                return Repos.Database;
+                manager = new Manager(Repos.Database);
         }
 
         protected override void InitializeCulture()
@@ -56,6 +63,8 @@ namespace Project.Models.BLL
                 }
             }
         }
+
+        //HELP METHODS
 
         public void CreateCookie(string name, string value)
         {

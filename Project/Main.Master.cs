@@ -8,13 +8,28 @@ using System.Web.UI.WebControls;
 
 namespace Project
 {
-    public partial class Main : MyMasterPage
+    public partial class Main : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             CheckToastr();
             VisitLoginHandler();
-            CheckUser();            
+            CheckUser();
+            SetRepoButton();
+        }
+
+        private void SetRepoButton()
+        {
+            if (HttpContext.Current.Request.Cookies["repo"] != null)
+            {
+                string repo = HttpContext.Current.Request.Cookies["repo"].Value;
+                if (repo == "txt")
+                    LblCurrentRepo.Text = "Repository - Text repo";
+                else
+                    LblCurrentRepo.Text = "Repository - Database repo";
+            }
+            else
+                LblCurrentRepo.Text = "Repository - Database repo";
         }
 
         private void CheckUser()
@@ -62,8 +77,7 @@ namespace Project
             Manager manager = new Manager();
             Person p = manager.GetPerson(Guid.Parse(Session["user"].ToString()));
             MasterMail.NavigateUrl = $"mailto:{p.Email[0]}";
-            MasterMail.Text = $"{p.Name} {p.Surname}";
-
+            MasterMail.Text = $"{p.Name} {p.Surname}";           
             SetUserPermission(p);
         }
 

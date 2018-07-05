@@ -20,8 +20,8 @@
             <asp:TextBox ID="TxtLoginPassword" CssClass="form-control" runat="server" />
         </div>
 
-        <div class="checkbox form-group">
-            <asp:CheckBox ID="CbLoginRemember" Text="Remember me" runat="server" />
+        <div class="form-group">
+                <asp:CheckBox ID="CbLoginRemember" CssClass="cbGlupiBootstrap" Text="Remember me" runat="server" />
         </div>
 
         <div class="form-group">

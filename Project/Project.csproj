@@ -194,9 +194,6 @@
     </Compile>
     <Compile Include="Models\BLL\Constants.cs" />
     <Compile Include="Models\BLL\Manager.cs" />
-    <Compile Include="Models\BLL\MyMasterPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Models\Controls\EditPersonControl.ascx.cs">
       <DependentUpon>EditPersonControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

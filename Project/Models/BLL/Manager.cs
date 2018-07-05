@@ -3,12 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 
 namespace Project.Models.BLL
 {
     public class Manager : IRepo
     {
-        public static IRepo repo = RepoFactory.GetRepo(MyPage.GetRepoTypeFromCookie());
+        public static IRepo repo;
+
+        public Manager(Repos r = Repos.Database)
+        {
+            repo = RepoFactory.GetRepo(r);
+        }
 
         //****************************Repo functions***************************************
         public IList<Person> GetPersons()       => repo.GetPersons();
@@ -18,10 +24,7 @@ namespace Project.Models.BLL
         public bool UpdatePerson(Person p)      => repo.UpdatePerson(p);
 
         //****************************Manager functions*************************************
-        public IList<string> GetCities()
-        {
-            return Constants.CITIES;
-        }        
+        public IList<string> GetCities() => Constants.CITIES;        
 
         public ISet<string> GetEmails()
         {
@@ -37,12 +40,12 @@ namespace Project.Models.BLL
             return emails;
         }
 
-        public bool IsLogged(string guid)
+        public bool IsLogged(Guid id)
         {
             IList<Person> persons = repo.GetPersons();
             foreach (var p in persons)
             {
-                if (p.Id.Equals(Guid.Parse(guid)))
+                if (p.Id.Equals(id))
                     return true;
             }
             return false;
