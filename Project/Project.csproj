@@ -88,7 +88,6 @@
     <Content Include="Data\Database\InsertAdmin.sql" />
     <Content Include="Data\Database\Procedures.sql" />
     <Content Include="Data\Database\Tables.sql" />
-    <Content Include="Data\FileRepo.txt" />
     <Content Include="Edit.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

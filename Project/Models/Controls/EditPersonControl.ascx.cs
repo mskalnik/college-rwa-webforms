@@ -94,8 +94,6 @@ namespace Project.Models.Controls
             string name = TxtName.Text;
             string surname = TxtSurname.Text;
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "LaunchServerSide", "$(function() { openModal(); });", true);
-
             if (!manager.DeletePerson(id))
                 Session["error"] = $"{name} {surname} not deleted!";
 

@@ -1,3 +1,3 @@
 a2ae5bfc-2d19-49aa-b686-e8543033941a|Main|Admin|admin@mail.com~admin@email.com~admin@admin.com~|+1234567890|123|True|Helsinki
-7e392c8a-cd7c-4a54-b0a2-b9b50962e945|Pero|Smrad|1~2~3~|123|123|False|Rijeka
-f4181526-184a-4263-93c1-6898516de1eb|Tri|Mejlni|523523~fds~feqf~|123321|123dsa432dcsa|True|Split
+7e392c8a-cd7c-4a54-b0a2-b9b50962e945|Some|User|user@mail.com~user@email.com~user@admin.com~|123|123|False|Rijeka
+f4181526-184a-4263-93c1-6898516de1eb|Tri|Mejlni|123@123.com1~|123321|123|True|Split

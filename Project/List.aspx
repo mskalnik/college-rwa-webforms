@@ -26,7 +26,7 @@
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
 
-                        <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound" meta:resourcekey="GwPersonsResource1">
+                        <asp:GridView ID="GwPersons" CssClass="table table-hover" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCancelingEdit="GwPersons_RowCancelingEdit" OnRowEditing="GwPersons_RowEditing" OnRowUpdating="GwPersons_RowUpdating" OnRowDataBound="GwPersons_RowDataBound" meta:resourcekey="GwPersonsResource1" OnRowCreated="GwPersons_RowCreated">
                             <Columns>
                                 <asp:TemplateField HeaderText="Id" Visible="False" meta:resourcekey="TemplateFieldResource1">
                                     <EditItemTemplate>
@@ -78,9 +78,10 @@
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField
-                                    ShowEditButton="True" meta:resourcekey="CommandFieldResource1"
-                                />
+                                <asp:CommandField 
+                                    ShowEditButton="True" 
+                                    meta:resourcekey="CommandFieldResource1" 
+                                    CausesValidation="False"/>
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
